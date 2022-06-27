@@ -31,7 +31,7 @@ namespace SpecFlowCalculator.Specs.Steps
             var createGroupCommand = new CreateGroupCommand { Name = name, CapacityInAmps = capacityInAmps };
 
             var response = await groupCommandApi.CreateGroup(createGroupCommand);
-            this.scenarioContext.Add("groupId", response.Data);
+            this.scenarioContext["groupId"] = response.Data;
         }
 
         [Given(@"the name of group is '([^']*)'")]
@@ -53,12 +53,12 @@ namespace SpecFlowCalculator.Specs.Steps
             
             if(!response.IsSuccessful)
             {
-                this.scenarioContext.Add("GroupCreateFailed", response);
+                this.scenarioContext["GroupCreateFailed"] = response;
                 return;
             }
 
             var group = await groupQueryApi.GetGroup(response.Data);
-            this.scenarioContext.Add("Group", group);
+            this.scenarioContext["Group"] = group;
         }
       
         [Then(@"the group is created with name '([^']*)'")]

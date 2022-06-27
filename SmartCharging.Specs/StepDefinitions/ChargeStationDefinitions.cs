@@ -30,7 +30,7 @@ namespace SmartCharging.Specs.StepDefinitions
             var createChargeStationCommand = new CreateChargeStationCommand { Name = name, GroupId = groupId };
 
             var response = await chargeStationCommandApi.CreateChargeStation(createChargeStationCommand);
-            this.scenarioContext.Add("chargeStationId", response.Data);
+            this.scenarioContext["chargeStationId"] = response.Data;
         }
 
         [Given(@"the name of charge station is '([^']*)'")]
@@ -52,12 +52,12 @@ namespace SmartCharging.Specs.StepDefinitions
 
             if (!response.IsSuccessful)
             {
-                this.scenarioContext.Add("ChargeStationCreateFailed", response);
+                this.scenarioContext["ChargeStationCreateFailed"] = response;
                 return;
             }
 
             var chargeStation = await chargeStationQueryApi.GetChargeStation(response.Data);
-            this.scenarioContext.Add("ChargeStation", chargeStation);
+            this.scenarioContext["ChargeStation"] = chargeStation;
         }
 
         [Then(@"the charge station is created with name '([^']*)'")]

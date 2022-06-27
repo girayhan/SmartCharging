@@ -26,9 +26,10 @@ namespace SmartCharging.Domain.Command.Commands.Group
             if (currentGroupEntity == null) throw new GroupDoesNotExistException();
 
             var newGroupEntity = this.mapper.Map<UpdateGroupCommand, GroupEntity>(request);
-            await this.groupRepository.Update(currentGroupEntity, newGroupEntity);
 
             await ValidateCapacity(currentGroupEntity, newGroupEntity);
+
+            await this.groupRepository.Update(currentGroupEntity, newGroupEntity);
 
             return Unit.Value;
         }

@@ -39,5 +39,14 @@ namespace SmartCharging.DataAccess.Database
         {
             this.Entry(currentEntity).CurrentValues.SetValues(newEntity);
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<GroupEntity>().HasKey(g => new { g.Id });
+
+            builder.Entity<ConnectorEntity>().HasKey(g => new { g.Id, g.ChargeStationId });
+
+            builder.Entity<ChargeStationEntity>().HasKey(g => new { g.Id });
+        }
     }
 }

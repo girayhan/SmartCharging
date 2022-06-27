@@ -47,12 +47,12 @@ namespace SmartCharging.Specs.StepDefinitions
 
             if (!response.IsSuccessful)
             {
-                this.scenarioContext.Add("ConnectorCreationFailed", response);
+                this.scenarioContext["ConnectorCreationFailed"] = response;
                 return;
             }
 
             var connector = await connectorQueryApi.GetConnector(createConnectorCommand.Id, createConnectorCommand.ChargeStationId);
-            this.scenarioContext.Add("Connector", connector);
+            this.scenarioContext["Connector"] = connector;
         }
 
         [Then(@"the connector is created with max current in amps is (.*)")]

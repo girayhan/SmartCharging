@@ -27,7 +27,7 @@ namespace SmartCharging.Domain.Command.Commands.Group
             {
                 await this.chargeStationRepository.Remove(chargeStationEntity);
 
-                var connectorsOfChargeStation = this.connectorRepository.GetAllConnectors().Where(c => c.ChargeStationId == request.Id);
+                var connectorsOfChargeStation = this.connectorRepository.GetAllConnectors().Where(c => c.ChargeStationId == chargeStationEntity.Id);
                 foreach (var connectorEntity in connectorsOfChargeStation)
                 {
                     await this.connectorRepository.Remove(connectorEntity);
