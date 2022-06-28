@@ -25,7 +25,7 @@ Solution and the tests are ready to run with VisualStudio
 - Also, after compiling the solution `dotnet SmartCharging.dll` command or running `SmartCharging.exe` can run the application
 - Swagger is integrated, and the url is https://localhost:5001/swagger/index.html
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job)
 
    [AutoMapper]: <https://automapper.org/>
    [MediatR]: <https://github.com/jbogard/MediatR>
