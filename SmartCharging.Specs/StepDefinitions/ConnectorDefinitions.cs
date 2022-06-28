@@ -75,5 +75,38 @@ namespace SmartCharging.Specs.StepDefinitions
             response.Content.Should().Contain(invalidConnectorIdException);
         }
 
+        [When(@"remove the connector that has id is (.*) and the created charge station is assigned")]
+        public async Task WhenRemoveTheConnectorThatHasIdIsAndTheCreatedChargeStationIsAssigned(int id)
+        {
+            var chargeStationId = this.scenarioContext.Get<Guid>("chargeStationId");
+            var removeConnectorCommand = new RemoveConnectorCommand { Id = id, ChargeStationId = chargeStationId };
+
+            await connectorCommandApi.RemoveConnector(removeConnectorCommand);
+        }      
+
+        [Then(@"the connector does not exist with id (.*) and the charge station is assigned")]
+        public async Task ThenTheConnectorDoesNotExistWithIdAndTheChargeStationIsAssigned(int id)
+        {
+            var chargeStationId = this.scenarioContext.Get<Guid>("chargeStationId");
+            var connector = await connectorQueryApi.GetConnector(id, chargeStationId);
+            connector.Should().BeNull();
+        }
+
+        [When(@"update the max current in amps of connector with id of (.*) and with the created charge station to (.*)")]
+        public async Task WhenUpdateTheMaxCurrentInAmpsOfConnectorWithIdOfAndWithTheCreatedChargeStationTo(int id, int updatedMaxCurrentInAmps)
+        {
+            var chargeStationId = this.scenarioContext.Get<Guid>("chargeStationId");
+            var updateConnectorCommand = new UpdateConnectorCommand { Id = id, ChargeStationId = chargeStationId, MaxCurrentInAmps = updatedMaxCurrentInAmps };
+
+            await connectorCommandApi.UpdateConnector(updateConnectorCommand);
+        }
+
+        [Then(@"the connector is updated with id of (.*) has max current in amps is (.*)")]
+        public async Task ThenTheConnectorIsUpdatedWithIdOfHasMaxCurrentInAmpsIs(int id, int updatedMaxCurrentInAmps)
+        {
+            var chargeStationId = this.scenarioContext.Get<Guid>("chargeStationId");
+            var connector = await connectorQueryApi.GetConnector(id, chargeStationId);
+            connector.MaxCurrentInAmps.Should().Be(updatedMaxCurrentInAmps);
+        }
     }
 }

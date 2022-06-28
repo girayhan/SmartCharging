@@ -385,6 +385,125 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Remove connector")]
+        [Xunit.TraitAttribute("FeatureTitle", "Connector")]
+        [Xunit.TraitAttribute("Description", "Remove connector")]
+        [Xunit.TraitAttribute("Category", "RemoveConnector")]
+        public virtual void RemoveConnector()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "RemoveConnector"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Remove connector", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 64
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 65
+ testRunner.Given("a group is created with name is \'group1\' and capacity in amps is 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 66
+ testRunner.Given("a charge station is created with name \'charge station 1\' and assigned to group ju" +
+                        "st created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 67
+ testRunner.Given("a charge station is present and assinged to the connector", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 68
+ testRunner.Given("max current in amps of connector is 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 69
+ testRunner.Given("id of connector is 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 70
+ testRunner.When("the connector is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 71
+ testRunner.When("remove the connector that has id is 1 and the created charge station is assigned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 72
+ testRunner.Then("the connector does not exist with id 1 and the charge station is assigned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="UpdateConnector")]
+        [Xunit.TraitAttribute("FeatureTitle", "Connector")]
+        [Xunit.TraitAttribute("Description", "UpdateConnector")]
+        [Xunit.TraitAttribute("Category", "UpdateConnector")]
+        public virtual void UpdateConnector()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "UpdateConnector"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UpdateConnector", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 75
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 76
+ testRunner.Given("a group is created with name is \'group1\' and capacity in amps is 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 77
+ testRunner.Given("a charge station is created with name \'charge station 1\' and assigned to group ju" +
+                        "st created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 78
+ testRunner.Given("a charge station is present and assinged to the connector", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 79
+ testRunner.Given("max current in amps of connector is 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 80
+ testRunner.Given("id of connector is 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 81
+ testRunner.When("the connector is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 82
+ testRunner.When("update the max current in amps of connector with id of 1 and with the created cha" +
+                        "rge station to 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 83
+ testRunner.Then("the connector is updated with id of 1 has max current in amps is 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

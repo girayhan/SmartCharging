@@ -60,4 +60,25 @@ Scenario: Create connectors without charge station
 	When the connector is created	
 	Then the connector creation failed with exception 'ChargeStationDoesNotExistException'
 
+@RemoveConnector
+Scenario: Remove connector
+	Given a group is created with name is 'group1' and capacity in amps is 30
+	Given a charge station is created with name 'charge station 1' and assigned to group just created
+	Given a charge station is present and assinged to the connector
+	Given max current in amps of connector is 10
+	Given id of connector is 1
+	When the connector is created
+	When remove the connector that has id is 1 and the created charge station is assigned
+	Then the connector does not exist with id 1 and the charge station is assigned
+
+@UpdateConnector
+Scenario: UpdateConnector
+	Given a group is created with name is 'group1' and capacity in amps is 30
+	Given a charge station is created with name 'charge station 1' and assigned to group just created
+	Given a charge station is present and assinged to the connector
+	Given max current in amps of connector is 10
+	Given id of connector is 1
+	When the connector is created
+	When update the max current in amps of connector with id of 1 and with the created charge station to 5
+	Then the connector is updated with id of 1 has max current in amps is 5
 

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using SmartCharging;
 using SmartCharging.Domain.Command.Commands.Group;
 using SmartCharging.Specs.API;
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace SpecFlowCalculator.Specs.Hooks
 {

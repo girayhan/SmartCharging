@@ -4,6 +4,7 @@ using SmartCharging;
 using SmartCharging.Domain.Command.Commands.Group;
 using SmartCharging.Domain.Query.DTOs;
 using SmartCharging.Specs.API;
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace SpecFlowCalculator.Specs.Steps
 {
@@ -12,7 +13,7 @@ namespace SpecFlowCalculator.Specs.Steps
     {
         private readonly GroupCommandApi groupCommandApi;
         private readonly GroupQueryApi groupQueryApi;
-        private ScenarioContext scenarioContext;
+        private readonly ScenarioContext scenarioContext;
 
         private CreateGroupCommand createGroupCommand;
 
@@ -22,7 +23,7 @@ namespace SpecFlowCalculator.Specs.Steps
             this.groupQueryApi = groupQueryApi;
             this.scenarioContext = scenarioContext;
 
-            createGroupCommand = new CreateGroupCommand();            
+            createGroupCommand = new CreateGroupCommand();
         }
 
         [Given(@"a group is created with name is '([^']*)' and capacity in amps is (.*)")]

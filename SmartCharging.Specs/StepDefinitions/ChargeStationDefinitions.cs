@@ -3,6 +3,7 @@ using SmartCharging.Domain.Command.Commands.ChargeStation;
 using SmartCharging.Domain.Command.Commands.Group;
 using SmartCharging.Domain.Query.DTOs;
 using SmartCharging.Specs.API;
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace SmartCharging.Specs.StepDefinitions
 {
@@ -11,7 +12,7 @@ namespace SmartCharging.Specs.StepDefinitions
     {
         private readonly ChargeStationCommandApi chargeStationCommandApi;
         private readonly ChargeStationQueryApi chargeStationQueryApi;
-        private ScenarioContext scenarioContext;
+        private readonly ScenarioContext scenarioContext;
 
         private CreateChargeStationCommand createChargeStationCommand;
 
